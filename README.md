@@ -27,16 +27,12 @@
   </a>
 </p>
 
-# <p align="center">
-#  <img src="./exampleScreenshot.png" /> 
-# </p>
-
 ## Purpose
 The goal of this project is to provide a quickstart in React with various, albeit opinionated, dependencies already installed and configured. Additionally, it's a way to provide good practices for repo management.
 
 In this repo you can find:
 * React, our framework of choice
-* JSS, CSS in JSS
+* SCSS
 * Jest, a testing framework
 * Babel, transpiling React and ES6 made ezpz
 * Parcel, a kickass bundler

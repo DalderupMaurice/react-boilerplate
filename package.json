@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "This creates a project boilerplate for React with a custom stack",
   "scripts": {
-    "build": "",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "precommit": "yarn lint",
     "lint": "eslint 'src/**/*.js*' --fix",
     "start": "parcel src/index.html",

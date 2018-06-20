@@ -10,3 +10,6 @@ build/
 # Jest stuff
 coverage/
 .idea
+
+# CSS
+src/**/*.css
