@@ -25,15 +25,11 @@
   <a href='https://github.com/prettier/prettier'>
     <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat'>
   </a>
-  
-  https://github.com/DalderupMaurice/react-boilerplate.git
-  
-  
 </p>
 
-<p align="center">
-  <img src="./exampleScreenshot.png" /> 
-</p>
+# <p align="center">
+#  <img src="./exampleScreenshot.png" /> 
+# </p>
 
 ## Purpose
 The goal of this project is to provide a quickstart in React with various, albeit opinionated, dependencies already installed and configured. Additionally, it's a way to provide good practices for repo management.
