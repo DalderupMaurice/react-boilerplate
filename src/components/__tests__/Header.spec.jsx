@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "enzyme";
 
-import TestPropTypes from "./../../__helpers__/TestPropTypes.helper";
+import TestPropTypes from "../../__utils__/TestPropTypes.helper";
 
 import Header from "./../Header";
 

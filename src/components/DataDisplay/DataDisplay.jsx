@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const DataDisplay = props => (
+const DataDisplay = ({ asset }) => (
   <div style={{ fontSize: "14px", textAlign: "left", margin: "auto" }}>
-    <pre>{props.asset && JSON.stringify(props.asset, null, 2)}</pre>
+    <pre>{asset && JSON.stringify(asset, null, 2)}</pre>
   </div>
 );
 
@@ -12,7 +12,7 @@ DataDisplay.propTypes = {
 };
 
 DataDisplay.defaultProps = {
-  asset: null
+  asset: {}
 };
 
 export default DataDisplay;

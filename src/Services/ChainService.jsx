@@ -1,4 +1,4 @@
-import Connection from "../__helpers__/Connection";
+import Connection from "../__utils__/Connection";
 
 export default class AuthService {
   constructor(baseUrl = "http://localhost:3000/api") {

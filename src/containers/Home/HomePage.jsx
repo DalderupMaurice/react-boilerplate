@@ -64,18 +64,20 @@ class HomePage extends Component {
   };
 
   render() {
+    const { tx, txData } = this.state;
+
     return (
       <div>
         <MyForm
           handleSubmit={this.createAcknowledgement}
           btnText="Send Transaction"
         />
-        <DataDisplay asset={this.state.tx} />
+        <DataDisplay asset={tx} />
         <MyForm
           handleSubmit={this.queryAcknowledgement}
           btnText="Query by Id"
         />
-        <DataDisplay asset={this.state.txData} />
+        <DataDisplay asset={txData} />
       </div>
     );
   }

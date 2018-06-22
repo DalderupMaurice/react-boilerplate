@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import { Layout, Breadcrumb } from "antd";
 
-import "./AppContainer.css";
+import "./AppContainer.scss";
 
 import CustomSider from "../../components/Navigation/CustomSider";
 

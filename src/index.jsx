@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import "antd/dist/antd.css";
 
-import AppContainer from "./views/App/AppContainer";
+import AppContainer from "./containers/App/AppContainer";
 
 ReactDOM.render(
   <Router>

@@ -2,43 +2,51 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Form, Icon, Input, Button } from "antd";
 
-import "./MyForm.css";
-
-const FormItem = Form.Item;
+import "./MyForm.scss";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
 class MyForm extends Component {
-  componentDidMount() {
+  async componentDidMount() {
+    const {
+      form: { validateFields }
+    } = this.props;
     // To disabled submit button at the beginning.
-    this.props.form.validateFields();
+    await validateFields();
   }
 
-  handleSubmit = e => {
+  validateBeforeSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    const {
+      form: { validateFields },
+      handleSubmit
+    } = this.props;
+    validateFields((err, values) => {
       if (!err) {
-        this.props.handleSubmit(values);
+        handleSubmit(values);
       }
     });
   };
 
   render() {
     const {
-      getFieldDecorator,
-      getFieldsError,
-      getFieldError,
-      isFieldTouched
-    } = this.props.form;
+      form: {
+        getFieldDecorator,
+        getFieldsError,
+        getFieldError,
+        isFieldTouched
+      },
+      btnText
+    } = this.props;
 
     // Only show error after a field is touched.
     const valueError = isFieldTouched("value") && getFieldError("value");
 
     return (
-      <Form layout="inline" onSubmit={this.handleSubmit}>
-        <FormItem
+      <Form layout="inline" onSubmit={this.validateBeforeSubmit}>
+        <Form.Item
           validateStatus={valueError ? "error" : ""}
           help={valueError || ""}
         >
@@ -50,17 +58,17 @@ class MyForm extends Component {
               placeholder="Value"
             />
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem>
+        <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
             disabled={hasErrors(getFieldsError())}
           >
-            {this.props.btnText}
+            {btnText}
           </Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

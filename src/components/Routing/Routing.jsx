@@ -7,7 +7,12 @@ import DefaultRoute from "./DefaultRoute";
 // import PrivateRoute from "./PrivateRoute";
 
 // Pages
-import { DashboardPage, HomePage, LoginPage, PageNotFound } from "../../views";
+import {
+  DashboardPage,
+  HomePage,
+  LoginPage,
+  PageNotFound
+} from "../../containers";
 
 class Routing extends PureComponent {
   render() {

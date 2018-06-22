@@ -4,6 +4,8 @@ import React from "react";
 import { Icon, Menu } from "antd";
 import { Link } from "react-router-dom";
 
+import "./MenuRoutes.scss";
+
 const { Item, SubMenu } = Menu;
 
 const MenuRoutes = () => (
