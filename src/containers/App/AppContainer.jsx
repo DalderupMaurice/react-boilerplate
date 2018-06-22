@@ -26,7 +26,7 @@ const MyContent = () => (
 );
 
 const MyFooter = () => (
-  <Footer style={{ textAlign: "center", padding: 0, paddingBottom: 5 }}>
+  <Footer style={{ textAlign: "center", padding: 0, paddingBottom: 10 }}>
     Bewire ©2018 Created by Trase
   </Footer>
 );
