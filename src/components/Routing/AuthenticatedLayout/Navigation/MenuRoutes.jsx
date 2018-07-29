@@ -6,32 +6,30 @@ import { Link } from "react-router-dom";
 
 import "./MenuRoutes.scss";
 
-const { Item, SubMenu } = Menu;
-
 const MenuRoutes = () => (
   <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
     {/* ==================
           Home
     ================== */}
-    <Item key="nav-home">
+    <Menu.Item key="nav-home">
       <Icon type="home" />
       <span>Home</span>
       <Link to="/" />
-    </Item>
+    </Menu.Item>
 
     {/* ==================
         About
     ================== */}
-    <Item key="nav-about">
+    <Menu.Item key="nav-about">
       <Icon type="question-circle-o" />
       <span>About</span>
       <Link to="/about" />
-    </Item>
+    </Menu.Item>
 
     {/* ==================
         Settings: profile, logout
     ================== */}
-    <SubMenu
+    <Menu.SubMenu
       key="nav-sub-settings"
       title={
         <span>
@@ -40,15 +38,15 @@ const MenuRoutes = () => (
         </span>
       }
     >
-      <Item key="nav-sub-settings-uprofile">
+      <Menu.Item key="nav-sub-settings-uprofile">
         <span>User Profile</span>
         <Link to="/profile" />
-      </Item>
-      <Item key="nav-sub-settings-logout">
+      </Menu.Item>
+      <Menu.Item key="nav-sub-settings-logout">
         <span>Sign Out</span>
         <Link to="/login" />
-      </Item>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
 
     {/* ==================
         Rest...

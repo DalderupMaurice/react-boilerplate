@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "antd";
 
-import AuthService from "../../Services/AuthService";
+import AuthService from "../../services/AuthService";
 
 class LoginPage extends Component {
   constructor(props) {

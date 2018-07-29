@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { notification } from "antd";
 
-import ChainService from "../../Services/ChainService";
+import ChainService from "../../services/ChainService";
 import MyForm from "../../components/Form/MyForm";
 import DataDisplay from "../../components/DataDisplay/DataDisplay";
 

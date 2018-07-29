@@ -5,7 +5,7 @@
   "scripts": {
     "precommit": "yarn lint --fix",
     "lint": "eslint 'src/**/*.js*' --fix",
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --no-cache",
     "test": "jest --all --verbose --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:local": "jest --all --verbose --coverage"
   },
@@ -13,12 +13,18 @@
     "antd": "3.6.4",
     "axios": "0.18.0",
     "babel-polyfill": "6.26.0",
+    "connected-react-router": "^4.3.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.10",
+    "login": "^0.8.0",
     "node-sass": "4.9.0",
     "prop-types": "15.6.2",
-    "react": "16.4.1",
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "16.4.1",
+    "react-redux": "^5.0.7",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
+    "recompose": "^0.27.1",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0"

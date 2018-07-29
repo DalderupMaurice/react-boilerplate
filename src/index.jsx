@@ -1,25 +1,27 @@
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createBrowserHistory } from "history";
 
 import "antd/dist/antd.css";
 
-import AppContainer from "./containers/App/AppContainer";
+import { ConnectedRouter } from "connected-react-router";
 import configureStore from "./redux/config/configureStore";
 
+import Routes from "./components/Routing";
 // import { init } from "./redux/web3/web3Actions";
 
 // Initialize data from server or localstorage here
-const store = configureStore();
+const history = createBrowserHistory();
+const store = configureStore({}, history);
 // store.dispatch(init());
-
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <AppContainer />
-    </Router>
-  </Provider>,,
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById("root")
 );
