@@ -12,16 +12,18 @@ export default class PrivateRoute extends React.Component {
     authenticated: false
   };
 
-  renderRoute = props => {
-    const { authenticated, component: Component } = this.state;
+  render() {
+    const { history, authenticated, component: Component } = this.props;
 
     if (authenticated) {
-      return <Component {...props} />;
+      return (
+        <Route {...this.props} render={props => <Component {...props} />} />
+      );
     }
-    return <Redirect to="/login" />;
-  };
-
-  render() {
-    return <Route {...this.props} render={this.renderRoute} />;
+    console.log(history);
+    // this.props.history.push('/login')
+    // return
+    // return <React.Fragment>{window.location.replace("/login")}</React.Fragment>
+    return <Redirect push to="/login" />;
   }
 }

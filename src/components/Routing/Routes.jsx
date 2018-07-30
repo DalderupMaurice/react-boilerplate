@@ -18,25 +18,21 @@ import {
 import withLayout from "../../hocs/withLayout";
 import LoginLayout from "./LoginLayout";
 import AuthenticatedLayout from "./AuthenticatedLayout";
+import AuthenticationPage from "../Auth/AuthenticationPage";
 
 const withLoginLayout = withLayout(LoginLayout);
 const withAuthLayout = withLayout(AuthenticatedLayout);
 
-class Index extends PureComponent {
+class Index extends React.Component {
   render() {
     return (
       <Switch>
-        {/*<DefaultRoute exact path="/" component={HomePage} appState={appState} />*/}
-        {/*<DefaultRoute path="/login" component={LoginPage} appState={appState} />*/}
-        {/*<DefaultRoute*/}
-        {/*path="/dashboard"*/}
-        {/*component={DashboardPage}*/}
-        {/*appState={appState}*/}
-        {/*/>*/}
-        <Route exact path="/login" component={withLoginLayout(LoginPage)} />
-        {/*<Route exact path="/register" component={withLoginLayout(Register)} />*/}
+        <Route exact path="/login" component={withLoginLayout(AuthenticationPage)} />
         <PrivateRoute exact path="/" component={withAuthLayout(HomePage)} />
-        {/*<PrivateRoute exact path="/logout" component={withAuthLayout(Logout)} />*/}
+        <PrivateRoute
+        path="/dashboard"
+        component={DashboardPage}
+        />
         <Redirect to="/login" />
       </Switch>
     );

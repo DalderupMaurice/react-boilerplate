@@ -2,7 +2,7 @@ import HomePage from "./Home/HomePage";
 
 import DashboardPage from "./Dashboard/DashboardPage";
 
-import LoginPage from "./Auth/LoginPage";
+import LoginPage from "../components/Auth/LoginPage";
 
 import PageNotFound from "./Errors/PageNotFound";
 
