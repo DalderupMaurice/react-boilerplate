@@ -1,6 +1,5 @@
-import React from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-
 import { Layout } from "antd";
+import React from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 
 const { Footer } = Layout;
 

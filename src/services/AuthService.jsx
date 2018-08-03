@@ -5,7 +5,5 @@ export default class AuthService {
     this.connection = new Connection(baseUrl);
   }
 
-  register = user => {
-
-  };
+  register = user => {};
 }

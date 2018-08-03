@@ -1,5 +1,7 @@
-import React, { Component } from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 import { Layout } from "antd";
+import React, {
+  Component
+} from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 
 import MenuRoutes from "./MenuRoutes";
 

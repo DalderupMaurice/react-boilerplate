@@ -1,8 +1,8 @@
-import React from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 import { bindActionCreators } from "redux";
+import { Form, Icon, Input, Button, Checkbox } from "antd";
+import React from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 import { connect } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux";
 
-import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { Link } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
 import { object } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
 
@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
     const {
       form: { getFieldDecorator }
     } = this.props;
-    
+
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>

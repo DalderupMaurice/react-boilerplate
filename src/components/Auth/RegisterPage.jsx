@@ -1,10 +1,13 @@
-import React from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 import { bindActionCreators } from "redux";
+import { Form, Icon, Input, Button, Checkbox } from "antd";
+import React from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 import { connect } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux";
 
-import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { Link } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
-import { object, func } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
+import {
+  object,
+  func
+} from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
 
 import * as web3Actions from "../../redux/web3/web3Actions";
 
