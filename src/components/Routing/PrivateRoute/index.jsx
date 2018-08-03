@@ -1,5 +1,5 @@
 import { compose, mapProps } from "recompose";
-import { withRouter } from "react-router-dom";
+import { withRouter } from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
 
 import PrivateRoute from "./PrivateRoute";
 

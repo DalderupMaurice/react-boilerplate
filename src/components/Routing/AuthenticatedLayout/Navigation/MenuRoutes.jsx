@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React from "react";
+import React from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
 
 import { Icon, Menu } from "antd";
-import { Link } from "react-router-dom";
+import { Link } from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
 
 import "./MenuRoutes.scss";
 

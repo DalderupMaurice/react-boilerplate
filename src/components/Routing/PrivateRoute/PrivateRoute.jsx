@@ -1,6 +1,6 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { bool, func } from "prop-types";
+import React from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
+import { Route, Redirect } from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
+import { bool, func } from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
 
 export default class PrivateRoute extends React.Component {
   static propTypes = {
