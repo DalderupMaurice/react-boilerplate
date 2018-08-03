@@ -8,6 +8,7 @@
     "prettier"
   ],
   "extends": [
+    "eslint:recommended",
     "airbnb",
     "prettier",
     "prettier/react"

@@ -4,10 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
-import {
-  object,
-  func
-} from "prop-types";
+import { object, func } from "prop-types";
 
 import * as userActions from "../../redux/users/userActions";
 
@@ -16,7 +13,7 @@ const FormItem = Form.Item;
 class RegisterPage extends React.Component {
   static propTypes = {
     form: object.isRequired,
-    web3Actions: func.isRequired
+    userActions: func.isRequired
   };
 
   handleSubmit = e => {
@@ -30,7 +27,6 @@ class RegisterPage extends React.Component {
     validateFields((err, values) => {
       if (!err) {
         register(values);
-        console.log("Received values of form: ", values); // eslint-disable-line
       }
     });
   };
@@ -43,7 +39,7 @@ class RegisterPage extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator("userName", {
+          {getFieldDecorator("username", {
             rules: [{ required: true, message: "Please input your username!" }]
           })(
             <Input

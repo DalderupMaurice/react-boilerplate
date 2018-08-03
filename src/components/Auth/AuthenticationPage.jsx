@@ -7,32 +7,19 @@ import "./AuthenticationPage.scss";
 
 const { TabPane } = Tabs;
 
-export default class AuthenticationPage extends React.Component {
-  constructor(props) {
-    super(props);
+const AuthenticationPage = () => (
+  <Row type="flex" justify="center" align="middle" style={{ height: "100vh" }}>
+    <Col span={12} align-self="center">
+      <Tabs defaultActiveKey="1" animated={false}>
+        <TabPane tab="Login" key="1">
+          <LoginPage />
+        </TabPane>
+        <TabPane tab="Register" key="2">
+          <RegisterPage />
+        </TabPane>
+      </Tabs>
+    </Col>
+  </Row>
+);
 
-    console.log(props.children);
-  }
-
-  render() {
-    return (
-      <Row
-        type="flex"
-        justify="center"
-        align="middle"
-        style={{ height: "100vh" }}
-      >
-        <Col span={12} align-self="center">
-          <Tabs defaultActiveKey="1" animated={false}>
-            <TabPane tab="Login" key="1">
-              <LoginPage />
-            </TabPane>
-            <TabPane tab="Register" key="2">
-              <RegisterPage />
-            </TabPane>
-          </Tabs>
-        </Col>
-      </Row>
-    );
-  }
-}
+export default AuthenticationPage;

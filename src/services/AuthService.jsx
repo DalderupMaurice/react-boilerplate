@@ -1,9 +1,15 @@
 import Connection from "../__utils__/Connection";
 
-export default class AuthService {
+class AuthService {
   constructor(baseUrl = "http://localhost:3000") {
     this.connection = new Connection(baseUrl);
   }
 
-  register = user => {};
+  // TODO real api call
+  register = user => user;
 }
+
+const instance = new AuthService();
+Object.freeze(instance);
+
+export default AuthService;

@@ -13,6 +13,7 @@ const FormItem = Form.Item;
 
 class LoginPage extends React.Component {
   static propTypes = {
+    userActions: object.isRequired,
     form: object.isRequired
   };
 
@@ -26,7 +27,6 @@ class LoginPage extends React.Component {
 
     validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values); // eslint-disable-line
         register(values);
       }
     });
@@ -40,7 +40,7 @@ class LoginPage extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator("userName", {
+          {getFieldDecorator("username", {
             rules: [{ required: true, message: "Please input your username!" }]
           })(
             <Input

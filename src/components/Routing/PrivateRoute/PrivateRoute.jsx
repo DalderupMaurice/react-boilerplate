@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Route,
-  Redirect
-} from "react-router-dom";
-import {
-  bool,
-  func
-} from "prop-types";
+import { Route, Redirect } from "react-router-dom";
+import { bool, func } from "prop-types";
 
-export default class PrivateRoute extends React.Component {
+export default class PrivateRoute extends React.PureComponent {
   static propTypes = {
     authenticated: bool,
     component: func.isRequired
@@ -19,17 +13,14 @@ export default class PrivateRoute extends React.Component {
   };
 
   render() {
-    const { history, authenticated, component: Component } = this.props;
+    const { authenticated, component: Component } = this.props;
 
     if (authenticated) {
       return (
         <Route {...this.props} render={props => <Component {...props} />} />
       );
     }
-    console.log(history);
-    // this.props.history.push('/login')
-    // return
-    // return <React.Fragment>{window.location.replace("/login")}</React.Fragment>
+
     return <Redirect push to="/login" />;
   }
 }

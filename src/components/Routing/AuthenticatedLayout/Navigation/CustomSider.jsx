@@ -1,7 +1,5 @@
 import { Layout } from "antd";
-import React, {
-  Component
-} from "react";
+import React from "react";
 
 import MenuRoutes from "./MenuRoutes";
 
@@ -9,7 +7,7 @@ import "./CustomSider.scss";
 
 const { Sider } = Layout;
 
-class CustomSider extends Component {
+class CustomSider extends React.Component {
   state = {
     collapsed: false
   };
@@ -29,9 +27,5 @@ class CustomSider extends Component {
     );
   }
 }
-
-// CustomSider.propTypes = {
-//
-// };
 
 export default CustomSider;

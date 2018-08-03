@@ -1,7 +1,7 @@
 // Imports
 import { createStore, applyMiddleware, compose } from "redux";
 import { connectRouter, routerMiddleware } from "connected-react-router";
-import { createSagaMiddleware } from "redux-saga";
+import createSagaMiddleware from "redux-saga";
 
 // Middleware imports
 import thunk from "redux-thunk";
@@ -18,6 +18,7 @@ export default function configureStore(initialState, history) {
 
   const enhancer = composeEnhancers(
     applyMiddleware(
+      sagaMiddleWare,
       routerMiddleware(history),
       thunk,
       reduxImmutableStateInvariant()

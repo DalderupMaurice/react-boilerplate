@@ -1,23 +1,18 @@
-import * as types from "../actionTypes";
+import { endsWith } from "lodash";
+
 import initialState from "../config/initialState";
 
-function actionTypeEndsInSuccess(type) {
-  return type.substr(type.length - 8) === "_SUCCESS";
-}
+const isRequestAction = type => endsWith(type, "_REQUEST");
+const isSuccessAction = type => endsWith(type, "_SUCCESS");
+const isErrorAction = type => endsWith(type, "_ERROR");
 
 export default function apiStatusReducer(
   state = initialState.amountCallsInProgress,
   action
 ) {
-  if (action.type === types.BEGIN_API_CALL) {
-    return state + 1;
-  }
-  if (
-    action.type === types.API_CALL_ERROR ||
-    actionTypeEndsInSuccess(action.type)
-  ) {
-    return state - 1;
-  }
-
+  const { type } = action;
+  if (isRequestAction(type)) return state + 1;
+  if (isSuccessAction(type)) return state - 1;
+  if (isErrorAction(type)) return state - 1;
   return state;
 }
