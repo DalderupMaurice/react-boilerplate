@@ -5,7 +5,7 @@ import { createSagaMiddleware } from "redux-saga";
 
 // Middleware imports
 import thunk from "redux-thunk";
-import reduxImmutableStateInvariant from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/redux-immutable-state-invariant"; // eslint-disable-line
+import reduxImmutableStateInvariant from "redux-immutable-state-invariant"; // eslint-disable-line
 
 // Root reducer
 import rootReducer from "./CombinedReducers";

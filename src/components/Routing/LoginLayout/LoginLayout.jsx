@@ -1,5 +1,5 @@
-import React from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import { node } from "../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
+import React from "react";
+import { node } from "prop-types";
 
 import "./LoginLayout.scss";
 

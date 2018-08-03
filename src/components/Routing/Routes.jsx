@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import React, { PureComponent } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import { Route, Switch, withRouter, Redirect } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
-import PropTypes from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
+import React, { PureComponent } from "react";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // Routing
 import DefaultRoute from "./DefaultRoute";

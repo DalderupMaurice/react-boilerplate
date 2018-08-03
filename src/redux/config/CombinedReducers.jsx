@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
 import amountCallsInProgress from "../ApiStatus/apiStatusReducer";
-import web3 from "../web3/web3Reducer";
+import user from "../users/userReducer";
 
 const rootReducer = combineReducers({
   amountCallsInProgress,
-  web3
+  user
 });
 
 export default rootReducer;

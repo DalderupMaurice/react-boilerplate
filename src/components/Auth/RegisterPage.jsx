@@ -1,15 +1,15 @@
 import { bindActionCreators } from "redux";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
-import React from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import { connect } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux";
+import React from "react";
+import { connect } from "react-redux";
 
-import { Link } from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
+import { Link } from "react-router-dom";
 import {
   object,
   func
-} from "../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types";
+} from "prop-types";
 
-import * as web3Actions from "../../redux/web3/web3Actions";
+import * as userActions from "../../redux/users/userActions";
 
 const FormItem = Form.Item;
 
@@ -23,7 +23,7 @@ class RegisterPage extends React.Component {
     e.preventDefault();
 
     const {
-      web3Actions: { register },
+      userActions: { register },
       form: { validateFields }
     } = this.props;
 
@@ -90,7 +90,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  web3Actions: bindActionCreators(web3Actions, dispatch)
+  userActions: bindActionCreators(userActions, dispatch)
 });
 
 export default connect(

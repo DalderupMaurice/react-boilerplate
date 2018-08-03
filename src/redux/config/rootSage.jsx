@@ -1,6 +1,6 @@
 import * as types from "../actionTypes";
-import { registerSaga } fron "../users/userSaga";
+import { registerSaga } from "../users/userSaga";
 
 export default function* rootSage() {
-  yield takeLatest(types.CREATE_USER_REQUEST)
+  yield takeLatest(types.CREATE_USER_REQUEST);
 }

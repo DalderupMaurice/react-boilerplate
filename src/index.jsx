@@ -1,8 +1,8 @@
 import "babel-polyfill";
-import React from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import ReactDOM from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-dom";
-import { Provider } from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux";
-import { createBrowserHistory } from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/history";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createBrowserHistory } from "history";
 
 import "antd/dist/antd.css";
 

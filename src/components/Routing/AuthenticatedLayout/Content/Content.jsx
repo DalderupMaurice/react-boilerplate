@@ -1,5 +1,5 @@
 import { Layout, Breadcrumb } from "antd";
-import React from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
+import React from "react";
 
 const { Content } = Layout;
 const { Item } = Breadcrumb;
