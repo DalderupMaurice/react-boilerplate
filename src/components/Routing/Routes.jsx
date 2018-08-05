@@ -28,7 +28,7 @@ class Index extends React.Component {
     return (
       <Switch>
         /* on / you can either register or login - TODO DefaultRoute not needed?? */
-        <Route exact path="/" component={withLoginLayout(AuthenticationPage)} />
+        <DefaultRoute exact path="/" component={withLoginLayout(AuthenticationPage)} />
         /* Dashboard is the user permitted board*/
         <PrivateRoute exact path="/dashboard" component={withAuthLayout(HomePage)} />
 

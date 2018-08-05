@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const PrivateRoute = ({
   component: Component,
@@ -27,4 +28,9 @@ PrivateRoute.defaultProps = {
   isAuthenticated: false
 };
 
-export default PrivateRoute;
+const mapStateToProps = state => ({
+  // Check if user exists or not - return boolean
+  isAuthenticated: !!state.user.jwt
+});
+
+export default connect(mapStateToProps)(PrivateRoute);

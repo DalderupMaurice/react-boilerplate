@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const DefaultRoute = ({
   component: Component,
@@ -11,7 +12,7 @@ const DefaultRoute = ({
   <Route
     {...rest}
     render={props =>
-      isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
+      isAuthenticated ? <Redirect to="/dashboard" /> : <Component {...props} />
     }
   />
 );
@@ -26,4 +27,9 @@ DefaultRoute.defaultProps = {
   isAuthenticated: false
 };
 
-export default DefaultRoute;
+const mapStateToProps = state => ({
+  // Check if user exists or not - return boolean
+  isAuthenticated: !!state.user.jwt
+});
+
+export default connect(mapStateToProps)(DefaultRoute);

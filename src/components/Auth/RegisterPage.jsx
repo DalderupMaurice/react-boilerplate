@@ -78,7 +78,7 @@ class RegisterPage extends React.Component {
             htmlType="submit"
             className="login-form-button"
           >
-            Log in
+            Register
           </Button>
           Already an account? <Link to="/"> Sign in!</Link>
         </FormItem>

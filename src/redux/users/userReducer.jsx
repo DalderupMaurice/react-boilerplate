@@ -1,19 +1,20 @@
+/* eslint-disable no-fallthrough */
 import * as types from "../common/actionTypes";
 import initialState from "../config/initialState";
 
 const userReducer = (state = initialState.user, { type, payload }) => {
   switch (type) {
-    // Registration
     case types.REGISTER_USER_REQUEST:
-      // TODO errors should be {}?
+    case types.LOGIN_USER_REQUEST:
       return Object.assign({}, state, { errors: null });
+
+    // Register
     case types.REGISTER_USER_SUCCESS:
-      return Object.assign({}, state, payload);
     case types.REGISTER_USER_FAILED:
-      return Object.assign({}, state, payload);
     // Login
-    case types.LOGOUT_USER_SUCCESS:
-      return Object.assign({}, state, {});
+    case types.LOGIN_USER_SUCCESS:
+    case types.LOGIN_USER_FAILED:
+      return Object.assign({}, state, payload);
     default:
       return state;
   }

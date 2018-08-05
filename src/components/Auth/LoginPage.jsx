@@ -21,13 +21,13 @@ class LoginPage extends React.Component {
     e.preventDefault();
 
     const {
-      userActions: { register },
+      userActions: { login },
       form: { validateFields }
     } = this.props;
 
     validateFields((err, values) => {
       if (!err) {
-        register(values);
+        login(values);
       }
     });
   };

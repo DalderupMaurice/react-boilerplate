@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This creates a project boilerplate for React with a custom stack",
   "scripts": {
-    "precommit": "yarn lint --fix",
+    "precommit": "yarn lint",
     "lint": "eslint src/**/**.js*",
     "start": "parcel src/index.html",
     "test": "jest --all --verbose --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
