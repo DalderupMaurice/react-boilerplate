@@ -27,13 +27,13 @@ class Index extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/login" component={withLoginLayout(AuthenticationPage)} />
-        <PrivateRoute exact path="/" component={withAuthLayout(HomePage)} />
-        <PrivateRoute
-        path="/dashboard"
-        component={DashboardPage}
-        />
-        <Redirect to="/login" />
+        /* on / you can either register or login - TODO DefaultRoute not needed?? */
+        <Route exact path="/" component={withLoginLayout(AuthenticationPage)} />
+        /* Dashboard is the user permitted board*/
+        <PrivateRoute exact path="/dashboard" component={withAuthLayout(HomePage)} />
+
+        /* No routes matched */
+        <Route component={withLoginLayout(PageNotFound)} />
       </Switch>
     );
   }

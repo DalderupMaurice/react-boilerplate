@@ -16,6 +16,7 @@
   "rules": {
     "prettier/prettier": "error",
     "linebreak-style":"off",
-    "react/forbid-prop-types": [1, { "forbid": ["any"] }]
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
+    "prefer-promise-reject-errors": "off"
   }
 }

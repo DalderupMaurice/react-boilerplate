@@ -1,4 +1,4 @@
 export default {
-  amountCallsInProgress: 0,
+  callsInProgress: 0,
   user: {}
 };

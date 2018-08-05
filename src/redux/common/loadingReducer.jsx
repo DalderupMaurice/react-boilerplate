@@ -4,10 +4,10 @@ import initialState from "../config/initialState";
 
 const isRequestAction = type => endsWith(type, "_REQUEST");
 const isSuccessAction = type => endsWith(type, "_SUCCESS");
-const isErrorAction = type => endsWith(type, "_ERROR");
+const isErrorAction = type => endsWith(type, "_FAILED");
 
 export default function apiStatusReducer(
-  state = initialState.amountCallsInProgress,
+  state = initialState.callsInProgress,
   action
 ) {
   const { type } = action;

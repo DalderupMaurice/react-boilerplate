@@ -4,7 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { object, func } from "prop-types";
+import { object } from "prop-types";
 
 import * as userActions from "../../redux/users/userActions";
 
@@ -13,7 +13,12 @@ const FormItem = Form.Item;
 class RegisterPage extends React.Component {
   static propTypes = {
     form: object.isRequired,
-    userActions: func.isRequired
+    userActions: object.isRequired,
+    user: object
+  };
+
+  static defaultProps = {
+    user: {}
   };
 
   handleSubmit = e => {
@@ -33,6 +38,7 @@ class RegisterPage extends React.Component {
 
   render() {
     const {
+      user: { errors: registerErrors },
       form: { getFieldDecorator }
     } = this.props;
 
@@ -74,8 +80,9 @@ class RegisterPage extends React.Component {
           >
             Log in
           </Button>
-          Or <Link to="/register">register now!</Link>
+          Already an account? <Link to="/"> Sign in!</Link>
         </FormItem>
+        {registerErrors && <h1>{JSON.stringify(registerErrors)}</h1>}
       </Form>
     );
   }

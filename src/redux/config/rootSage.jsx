@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
 
-import * as types from "../actionTypes";
+import * as types from "../common/actionTypes";
 import { registerSaga } from "../users/userSaga";
 
 export default function* rootSage() {

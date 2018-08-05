@@ -1,26 +1,30 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { bool, func } from "prop-types";
+import { Redirect, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default class PrivateRoute extends React.PureComponent {
-  static propTypes = {
-    authenticated: bool,
-    component: func.isRequired
-  };
-
-  static defaultProps = {
-    authenticated: false
-  };
-
-  render() {
-    const { authenticated, component: Component } = this.props;
-
-    if (authenticated) {
-      return (
-        <Route {...this.props} render={props => <Component {...props} />} />
-      );
+const PrivateRoute = ({
+  component: Component,
+  appState,
+  isAuthenticated,
+  ...rest
+}) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
     }
+  />
+);
 
-    return <Redirect push to="/login" />;
-  }
-}
+PrivateRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  appState: PropTypes.object,
+  isAuthenticated: PropTypes.bool
+};
+
+PrivateRoute.defaultProps = {
+  appState: {},
+  isAuthenticated: false
+};
+
+export default PrivateRoute;

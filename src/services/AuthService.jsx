@@ -6,7 +6,19 @@ class AuthService {
   }
 
   // TODO real api call
-  register = user => user;
+  register = user =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (!user) {
+          console.log("success");
+          resolve(user);
+        } else {
+          console.log("failed");
+          reject({ errors: "failed to register user" });
+        }
+      }, 3000);
+      console.log("exit");
+    });
 }
 
 const instance = new AuthService();

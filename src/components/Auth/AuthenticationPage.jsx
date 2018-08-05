@@ -1,5 +1,6 @@
-import { Col, Row, Tabs } from "antd";
 import React from "react";
+import { Col, Row, Tabs } from "antd";
+
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 
