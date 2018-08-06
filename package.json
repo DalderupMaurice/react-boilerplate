@@ -10,7 +10,7 @@
     "test:local": "jest --all --verbose --coverage"
   },
   "dependencies": {
-    "antd": "3.7.3",
+    "antd": "3.8.0",
     "axios": "0.18.0",
     "babel-polyfill": "6.26.0",
     "connected-react-router": "4.3.0",
@@ -23,7 +23,7 @@
     "react-redux": "5.0.7",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
-    "recompose": "0.28.1",
+    "recompose": "0.28.2",
     "redux": "4.0.0",
     "redux-saga": "0.16.0",
     "redux-thunk": "2.3.0"
@@ -40,7 +40,7 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
-    "eslint": "5.2.0",
+    "eslint": "5.3.0",
     "eslint-config-airbnb": "17.0.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.13.0",
