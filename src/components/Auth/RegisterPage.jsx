@@ -1,14 +1,16 @@
-import { bindActionCreators } from "redux";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
 import React from "react";
+import { bindActionCreators } from "redux";
+import { Select, Form, Icon, Input, Button, Checkbox } from "antd";
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { object } from "prop-types";
 
 import * as userActions from "../../redux/users/userActions";
+import { ROLES } from "../../__utils__/Constants";
 
 const FormItem = Form.Item;
+const Option = Select.Option;
 
 class RegisterPage extends React.Component {
   static propTypes = {
@@ -37,6 +39,7 @@ class RegisterPage extends React.Component {
   };
 
   render() {
+    // TODO onXXXChange event from antd - set errors
     const {
       user: { errors: registerErrors },
       form: { getFieldDecorator }
@@ -66,6 +69,31 @@ class RegisterPage extends React.Component {
           )}
         </FormItem>
         <FormItem>
+          {getFieldDecorator("role", {
+            rules: [{ required: true, message: "Please select a role!" }]
+          })(
+            <Select
+              showSearch
+              placeholder="Choose a role"
+              optionFilterProp="children"
+              onChange={this.handleChange}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              filterOption={(input, option) =>
+                option.props.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              {Object.values(ROLES).map((role, index) => (
+                <Option key={`${index}-${role}-role-select`} value={role}>
+                  {role}
+                </Option>
+              ))}
+            </Select>
+          )}
+        </FormItem>
+        <FormItem>
           {getFieldDecorator("remember", {
             valuePropName: "checked",
             initialValue: true
@@ -82,7 +110,7 @@ class RegisterPage extends React.Component {
           </Button>
           Already an account? <Link to="/"> Sign in!</Link>
         </FormItem>
-        {registerErrors && <h1>{JSON.stringify(registerErrors)}</h1>}
+        {registerErrors && <h4>{JSON.stringify(registerErrors)}</h4>}
       </Form>
     );
   }

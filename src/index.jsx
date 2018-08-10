@@ -10,12 +10,12 @@ import { ConnectedRouter } from "connected-react-router";
 import configureStore from "./redux/config/configureStore";
 
 import Routes from "./components/Routing";
-// import { init } from "./redux/web3/web3Actions";
+import { restoreSession } from "./redux/users/userActions";
 
 // Initialize data from server or localstorage here
 const history = createBrowserHistory();
 const store = configureStore({}, history);
-// store.dispatch(init());
+store.dispatch(restoreSession());
 
 ReactDOM.render(
   <Provider store={store}>

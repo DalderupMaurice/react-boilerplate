@@ -1,52 +1,54 @@
-/* eslint-disable */
-
-import React, { PureComponent } from "react";
-import { Route, Switch, withRouter, Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from "react";
+import { connect } from "react-redux";
+import { compose } from "recompose";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 // Routing
-import DefaultRoute from "./DefaultRoute";
-import PrivateRoute from "./PrivateRoute";
+import GuestRoute from "./GuestRoute";
+import UserRoute from "./UserRoute";
+import AdminRoute from "./AdminRoute";
 
 // Pages
-import {
-  DashboardPage,
-  HomePage,
-  LoginPage,
-  PageNotFound
-} from "../../containers";
+import { HomePage, PageNotFound } from "../../containers";
+
+//  Hocs
 import withLayout from "../../hocs/withLayout";
+import withLoadingScreen from "../../hocs/withLoadingScreen";
+
+// Layouts
 import LoginLayout from "./LoginLayout";
 import AuthenticatedLayout from "./AuthenticatedLayout";
+
+// Auth Pages
 import AuthenticationPage from "../Auth/AuthenticationPage";
+import Logout from "../Auth/Logout";
 
 const withLoginLayout = withLayout(LoginLayout);
 const withAuthLayout = withLayout(AuthenticatedLayout);
 
-class Index extends React.Component {
-  render() {
-    return (
-      <Switch>
-        /* on / you can either register or login - TODO DefaultRoute not needed?? */
-        <DefaultRoute exact path="/" component={withLoginLayout(AuthenticationPage)} />
-        /* Dashboard is the user permitted board*/
-        <PrivateRoute exact path="/dashboard" component={withAuthLayout(HomePage)} />
+const Routes = () => (
+  <Switch>
+    {/* on / you can either register or login */}
+    <GuestRoute
+      exact
+      path="/"
+      component={withLoginLayout(AuthenticationPage)}
+    />
+    <GuestRoute exact path="/logout" component={Logout} />
+    {/* Dashboard is the user permitted board */}
+    <UserRoute exact path="/dashboard" component={withAuthLayout(HomePage)} />
+    <AdminRoute exact path="/admin" component={withAuthLayout(HomePage)} />
+    {/* No routes matched */}
+    <Route component={withLoginLayout(PageNotFound)} />
+  </Switch>
+);
 
-        /* No routes matched */
-        <Route component={withLoginLayout(PageNotFound)} />
-      </Switch>
-    );
-  }
-}
+const mapStateToProps = state => ({
+  loading: state.user.loading
+});
 
-Index.propTypes = {
-  appState: PropTypes.object
-};
-
-Index.defaultProps = {
-  appState: {}
-};
-
-export default Index;
-
-/* eslint-disable */
+export default compose(
+  withRouter,
+  connect(mapStateToProps),
+  withLoadingScreen
+)(Routes);

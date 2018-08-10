@@ -3,34 +3,43 @@ import { Redirect, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({
+import { ROLES } from "../../__utils__/Constants";
+
+const GuestRoute = ({
   component: Component,
   appState,
   isAuthenticated,
+  role,
   ...rest
 }) => (
   <Route
     {...rest}
     render={props =>
-      isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
+      isAuthenticated && role === ROLES.admin ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
     }
   />
 );
 
-PrivateRoute.propTypes = {
+GuestRoute.propTypes = {
   component: PropTypes.func.isRequired,
   appState: PropTypes.object,
+  role: PropTypes.string,
   isAuthenticated: PropTypes.bool
 };
 
-PrivateRoute.defaultProps = {
+GuestRoute.defaultProps = {
   appState: {},
+  role: ROLES.guest,
   isAuthenticated: false
 };
 
 const mapStateToProps = state => ({
   // Check if user exists or not - return boolean
-  isAuthenticated: !!state.user.jwt
+  isAuthenticated: state.user.isAuthenticated
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(GuestRoute);

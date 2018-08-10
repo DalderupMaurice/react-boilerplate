@@ -3,7 +3,11 @@ import axios from "axios";
 let currentConnection = null;
 let currentToken = null;
 
-export default function Connection(baseURL, token = "", headers = null) {
+export default function Connection(
+  baseURL = "http://localhost:3000/api",
+  token = "",
+  headers = null
+) {
   currentToken = token;
   currentConnection = axios.create({
     baseURL,
@@ -15,10 +19,10 @@ export default function Connection(baseURL, token = "", headers = null) {
   });
 
   currentConnection.interceptors.response.use(
-    response => response,
+    response => response.data,
     error =>
       // Only send the response
-      Promise.reject(error.response)
+      Promise.reject(error.response.data.message)
   );
 
   return currentConnection;

@@ -2,44 +2,62 @@ import Connection from "../__utils__/Connection";
 import { LS_USER } from "../__utils__/Constants";
 
 class AuthService {
-  constructor(baseUrl = "http://localhost:3000") {
-    this.connection = new Connection(baseUrl);
+  constructor(baseURL) {
+    this.connection = new Connection(baseURL);
   }
 
-  // TODO real api call
   register = user =>
     new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (!user) {
-          resolve(user);
-        } else {
-          reject({ errors: "failed to register user" });
-        }
-      }, 3000);
+      this.connection
+        .post("/auth/register", user)
+        .then(registeredUser => resolve(registeredUser))
+        .catch(error => reject(error));
     });
 
-  // TODO real api call
   login = user =>
     new Promise((resolve, reject) => {
-      // TODO API CALL
-      const retrievedUser = {
-        ...user,
-        jwt: "randomJWT",
-        isAuthenticated: true
-      };
+      this.connection
+        .post("/auth/login", user)
+        .then(({ _doc: currentUser }) => {
+          if (user.remember) {
+            localStorage.setItem(
+              LS_USER,
+              JSON.stringify({
+                ...currentUser,
+                password: user.password
+              })
+            );
+          }
 
-      if (user.remember) {
-        localStorage.setItem(LS_USER, JSON.stringify(retrievedUser));
-      }
-
-      setTimeout(() => {
-        if (user) {
-          resolve(retrievedUser);
-        } else {
-          reject({ errors: "failed to sign in" });
-        }
-      }, 1000);
+          resolve({
+            ...currentUser,
+            isAuthenticated: true
+          });
+        })
+        .catch(error => reject(error));
     });
+
+  restoreSession = () =>
+    new Promise(async (resolve, reject) => {
+      try {
+        console.log('trying');
+        const userFromStorage = JSON.parse(localStorage.getItem(LS_USER));
+        if (userFromStorage) resolve(await this.login(userFromStorage));
+        console.log('trying');
+
+      } catch (e) {
+        console.log('trying');
+
+        reject(e);
+      }
+      console.log('trying');
+
+      reject("No session found");
+    });
+
+  logout = () => {
+    localStorage.clear();
+  };
 }
 
 const instance = new AuthService();

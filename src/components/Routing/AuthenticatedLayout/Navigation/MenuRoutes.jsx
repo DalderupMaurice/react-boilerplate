@@ -2,10 +2,11 @@ import React from "react";
 
 import { Icon, Menu } from "antd";
 import { Link } from "react-router-dom";
+import { ROLES } from "../../../../__utils__/Constants";
 
 import "./MenuRoutes.scss";
 
-const MenuRoutes = () => (
+const MenuRoutes = ({ role }) => (
   <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
     {/* ==================
           Home
@@ -43,13 +44,20 @@ const MenuRoutes = () => (
       </Menu.Item>
       <Menu.Item key="nav-sub-settings-logout">
         <span>Sign Out</span>
-        <Link to="/login" />
+        <Link to="/logout" />
       </Menu.Item>
     </Menu.SubMenu>
 
     {/* ==================
-        Rest...
+          ADMIN
     ================== */}
+    {role === ROLES.admin && (
+      <Menu.Item key="nav-admin">
+        <Icon type="question-circle-o" />
+        <span>About</span>
+        <Link to="/admin" />
+      </Menu.Item>
+    )}
   </Menu>
 );
 

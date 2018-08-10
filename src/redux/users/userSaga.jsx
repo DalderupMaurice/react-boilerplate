@@ -5,7 +5,12 @@ import {
   registerSuccess,
   registerFailed,
   loginFailed,
-  loginSuccess
+  loginSuccess,
+  logoutSuccess,
+  logoutFailed,
+  restoreSessionSuccess,
+  resoteSessionFailed,
+  restoreSessionFailed
 } from "./userActions";
 
 const authSerivce = new AuthService();
@@ -27,5 +32,25 @@ export function* loginSaga({ payload }) {
   } catch (e) {
     // Different action depending on type of error
     yield put(loginFailed(e));
+  }
+}
+
+export function* logoutSaga() {
+  try {
+    const user = yield call(authSerivce.logout);
+    yield put(logoutSuccess(user));
+  } catch (e) {
+    // Different action depending on type of error
+    yield put(logoutFailed(e));
+  }
+}
+
+export function* restoreSessionSaga() {
+  try {
+    const user = yield call(authSerivce.restoreSession);
+    yield put(restoreSessionSuccess(user));
+  } catch (e) {
+    // Different action depending on type of error
+    yield put(restoreSessionFailed(e));
   }
 }

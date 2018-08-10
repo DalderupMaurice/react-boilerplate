@@ -3,12 +3,7 @@ import { Redirect, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const DefaultRoute = ({
-  component: Component,
-  appState,
-  isAuthenticated,
-  ...rest
-}) => (
+const GuestRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route
     {...rest}
     render={props =>
@@ -17,19 +12,17 @@ const DefaultRoute = ({
   />
 );
 
-DefaultRoute.propTypes = {
+GuestRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  appState: PropTypes.object.isRequired,
   isAuthenticated: PropTypes.bool
 };
 
-DefaultRoute.defaultProps = {
+GuestRoute.defaultProps = {
   isAuthenticated: false
 };
 
 const mapStateToProps = state => ({
-  // Check if user exists or not - return boolean
-  isAuthenticated: !!state.user.jwt
+  isAuthenticated: state.user.isAuthenticated || false
 });
 
-export default connect(mapStateToProps)(DefaultRoute);
+export default connect(mapStateToProps)(GuestRoute);

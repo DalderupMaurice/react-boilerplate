@@ -33,3 +33,37 @@ export const loginFailed = error => ({
   payload: error
 });
 /** Register Section - END * */
+
+/** Logout Section - BEGIN * */
+export const logout = user => ({
+  type: types.LOGOUT_USER_REQUEST,
+  payload: user
+});
+
+export const logoutSuccess = user => ({
+  type: types.LOGOUT_USER_SUCCESS,
+  payload: user
+});
+
+export const logoutFailed = error => ({
+  type: types.LOGOUT_USER_FAILED,
+  payload: error
+});
+/** Register Section - END * */
+
+/** Session Section - BEGIN * */
+export const restoreSession = user => ({
+  type: types.RESTORE_SESSION_REQUEST,
+  payload: user
+});
+
+export const restoreSessionSuccess = user => ({
+  type: types.RESTORE_SESSION_SUCCESS,
+  payload: user
+});
+
+export const restoreSessionFailed = error => ({
+  type: types.RESTORE_SESSION_FAILED,
+  payload: error
+});
+/** Register Section - END * */

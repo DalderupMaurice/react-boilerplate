@@ -1,4 +1,6 @@
 export default {
   callsInProgress: 0,
-  user: {}
+  user: {
+    loading: true
+  }
 };

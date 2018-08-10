@@ -5,13 +5,15 @@
   },
   "parser": "babel-eslint",
   "plugins": [
-    "prettier"
+    "prettier",
+    "jsx-a11y"
   ],
   "extends": [
     "eslint:recommended",
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:jsx-a11y/recommended"
   ],
   "rules": {
     "prettier/prettier": "error",
