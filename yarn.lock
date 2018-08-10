@@ -4783,6 +4783,10 @@ mem@^1.1.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+memoize-one@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-4.0.0.tgz#fc5e2f1427a216676a62ec652cf7398cfad123db"
+
 meow@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
@@ -6816,11 +6820,12 @@ react-slick@~0.23.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-spring@5.6.1:
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.6.1.tgz#f891d3129f4a3d36a139c7ec795ffb5ac977154f"
+react-spring@5.6.3:
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.6.3.tgz#f0de648e74d92213ea476d7f868994fd6239aeee"
   dependencies:
     "@babel/runtime" "7.0.0-beta.51"
+    memoize-one "^4.0.0"
 
 react-test-renderer@16.4.2, react-test-renderer@^16.0.0-0:
   version "16.4.2"
