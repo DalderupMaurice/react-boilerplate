@@ -6820,9 +6820,9 @@ react-slick@~0.23.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-spring@5.6.3:
-  version "5.6.3"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.6.3.tgz#f0de648e74d92213ea476d7f868994fd6239aeee"
+react-spring@5.6.6:
+  version "5.6.6"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.6.6.tgz#681f1f1748b5a2bae99ec2ed32f3e83b1c06cb37"
   dependencies:
     "@babel/runtime" "7.0.0-beta.51"
     memoize-one "^4.0.0"
