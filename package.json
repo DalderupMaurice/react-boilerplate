@@ -7,6 +7,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "lint": "eslint src/**/**.js*",
+    "prettier": "prettier --print-width=120 --write '*.{js,jsx,css,scss}'",
     "start": "parcel src/index.html",
     "test": "jest --all --verbose --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:local": "jest --all --verbose --coverage"
@@ -99,8 +100,8 @@
   ],
   "lint-staged": {
     "*.{js,jsx,css,scss}": [
-      "yarn lint",
-      "prettier --print-width=120 --write",
+      "yarn lint --fix",
+      "yarn prettier",
       "git add ."
     ]
   }
