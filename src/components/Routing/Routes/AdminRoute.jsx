@@ -5,21 +5,21 @@ import { connect } from "react-redux";
 
 import { ROLES } from "../../../__utils__/Constants";
 
-const GuestRoute = ({ component: Component, appState, isAuthenticated, role, ...rest }) => (
+const AdminRoute = ({ component: Component, isAuthenticated, role, ...rest }) => (
   <Route
     {...rest}
-    render={props => (isAuthenticated && role === ROLES.admin ? <Component {...props} /> : <Redirect to="/login" />)}
+    render={props => (isAuthenticated && role === ROLES.admin ? <Component {...props} /> : <Redirect to="/" />)}
   />
 );
 
-GuestRoute.propTypes = {
+AdminRoute.propTypes = {
   component: PropTypes.func.isRequired,
   appState: PropTypes.object,
   role: PropTypes.string,
   isAuthenticated: PropTypes.bool
 };
 
-GuestRoute.defaultProps = {
+AdminRoute.defaultProps = {
   appState: {},
   role: ROLES.guest,
   isAuthenticated: false
@@ -27,7 +27,8 @@ GuestRoute.defaultProps = {
 
 const mapStateToProps = state => ({
   // Check if user exists or not - return boolean
-  isAuthenticated: state.user.isAuthenticated
+  isAuthenticated: state.user.isAuthenticated,
+  role: state.user.role
 });
 
-export default connect(mapStateToProps)(GuestRoute);
+export default connect(mapStateToProps)(AdminRoute);

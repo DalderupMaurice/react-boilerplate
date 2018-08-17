@@ -56,7 +56,7 @@ const MenuRoutes = ({ role }) => (
     {role === ROLES.admin && (
       <Menu.Item key="nav-admin">
         <Icon type="question-circle-o" />
-        <span>About</span>
+        <span>Admin panel</span>
         <Link to="/admin" />
       </Menu.Item>
     )}
