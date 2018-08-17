@@ -40,23 +40,17 @@ class AuthService {
   restoreSession = () =>
     new Promise(async (resolve, reject) => {
       try {
-        console.log('trying');
         const userFromStorage = JSON.parse(localStorage.getItem(LS_USER));
         if (userFromStorage) resolve(await this.login(userFromStorage));
-        console.log('trying');
-
       } catch (e) {
-        console.log('trying');
-
         reject(e);
       }
-      console.log('trying');
-
       reject("No session found");
     });
 
   logout = () => {
     localStorage.clear();
+    return Promise.resolve({ isAuthenticated: false });
   };
 }
 

@@ -9,7 +9,6 @@ import {
   logoutSuccess,
   logoutFailed,
   restoreSessionSuccess,
-  resoteSessionFailed,
   restoreSessionFailed
 } from "./userActions";
 

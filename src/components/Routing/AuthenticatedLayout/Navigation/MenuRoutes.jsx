@@ -2,6 +2,8 @@ import React from "react";
 
 import { Icon, Menu } from "antd";
 import { Link } from "react-router-dom";
+import { string } from "prop-types";
+
 import { ROLES } from "../../../../__utils__/Constants";
 
 import "./MenuRoutes.scss";
@@ -60,5 +62,9 @@ const MenuRoutes = ({ role }) => (
     )}
   </Menu>
 );
+
+MenuRoutes.propTypes = {
+  role: string.isRequired
+};
 
 export default MenuRoutes;

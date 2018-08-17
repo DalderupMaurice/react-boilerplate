@@ -42,12 +42,7 @@ class LoginPage extends React.Component {
         <FormItem>
           {getFieldDecorator("username", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Username"
-            />
-          )}
+          })(<Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="Username" />)}
         </FormItem>
         <FormItem>
           {getFieldDecorator("password", {
@@ -68,11 +63,7 @@ class LoginPage extends React.Component {
           <Link className="login-form-forgot" to="/login">
             Forgot password
           </Link>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-          >
+          <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
           Or <Link to="/register">register now!</Link>
@@ -83,7 +74,7 @@ class LoginPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

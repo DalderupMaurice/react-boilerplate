@@ -9,9 +9,6 @@ import { object } from "prop-types";
 import * as userActions from "../../redux/users/userActions";
 import { ROLES } from "../../__utils__/Constants";
 
-const FormItem = Form.Item;
-const Option = Select.Option;
-
 class RegisterPage extends React.Component {
   static propTypes = {
     form: object.isRequired,
@@ -47,17 +44,12 @@ class RegisterPage extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
-        <FormItem>
+        <Form.Item>
           {getFieldDecorator("username", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Username"
-            />
-          )}
-        </FormItem>
-        <FormItem>
+          })(<Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="Username" />)}
+        </Form.Item>
+        <Form.Item>
           {getFieldDecorator("password", {
             rules: [{ required: true, message: "Please input your Password!" }]
           })(
@@ -67,8 +59,8 @@ class RegisterPage extends React.Component {
               placeholder="Password"
             />
           )}
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           {getFieldDecorator("role", {
             rules: [{ required: true, message: "Please select a role!" }]
           })(
@@ -79,21 +71,17 @@ class RegisterPage extends React.Component {
               onChange={this.handleChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
-              filterOption={(input, option) =>
-                option.props.children
-                  .toLowerCase()
-                  .indexOf(input.toLowerCase()) >= 0
-              }
+              filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
             >
-              {Object.values(ROLES).map((role, index) => (
-                <Option key={`${index}-${role}-role-select`} value={role}>
+              {Object.values(ROLES).map(role => (
+                <Select.Option key={`${role}-role-select`} value={role}>
                   {role}
-                </Option>
+                </Select.Option>
               ))}
             </Select>
           )}
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           {getFieldDecorator("remember", {
             valuePropName: "checked",
             initialValue: true
@@ -101,15 +89,11 @@ class RegisterPage extends React.Component {
           <Link className="login-form-forgot" to="/register">
             Forgot password
           </Link>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-          >
+          <Button type="primary" htmlType="submit" className="login-form-button">
             Register
           </Button>
           Already an account? <Link to="/"> Sign in!</Link>
-        </FormItem>
+        </Form.Item>
         {registerErrors && <h4>{JSON.stringify(registerErrors)}</h4>}
       </Form>
     );
