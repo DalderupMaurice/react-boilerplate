@@ -1,29 +1,20 @@
 // Imports
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import createSagaMiddleware from "redux-saga";
 
 // Middleware imports
-import thunk from "redux-thunk";
-import reduxImmutableStateInvariant from "redux-immutable-state-invariant"; // eslint-disable-line
+// eslint-disable-next-line
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // Root reducer
 import rootReducer from "./CombinedReducers";
 import rootSaga from "./rootSage";
 
 export default function configureStore(initialState, history) {
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
   const sagaMiddleWare = createSagaMiddleware();
 
-  const enhancer = composeEnhancers(
-    applyMiddleware(
-      sagaMiddleWare,
-      routerMiddleware(history),
-      thunk,
-      reduxImmutableStateInvariant()
-    )
-  );
+  const enhancer = composeWithDevTools(applyMiddleware(sagaMiddleWare, routerMiddleware(history)));
 
   const store = createStore(
     connectRouter(history)(rootReducer), // new root reducer with router state
