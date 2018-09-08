@@ -13,7 +13,7 @@
     "test:local": "jest --all --verbose --coverage"
   },
   "dependencies": {
-    "antd": "3.8.1",
+    "antd": "3.9.2",
     "axios": "0.18.0",
     "babel-polyfill": "6.26.0",
     "connected-react-router": "4.4.1",
