@@ -1,11 +1,7 @@
 {
   "presets": [
-    "react",
-    "env"
+    "@babel/preset-react",
+    "@babel/preset-env"
   ],
-  "plugins": [
-    ["transform-object-rest-spread", { "useBuiltIns": true }],
-    "transform-function-bind",
-    "transform-class-properties"
-  ]
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
