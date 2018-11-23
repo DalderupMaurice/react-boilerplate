@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { object } from "prop-types";
 
-import * as userActions from "../../redux/users/userActions";
+import * as userActions from "../../../redux/users/userActions";
 
 class Logout extends React.Component {
   static propTypes = {

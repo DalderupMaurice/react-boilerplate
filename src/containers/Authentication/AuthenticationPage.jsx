@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row, Tabs } from "antd";
 
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
+import LoginPage from "./Login";
+import RegisterPage from "./Register";
 
 import "./AuthenticationPage.scss";
 

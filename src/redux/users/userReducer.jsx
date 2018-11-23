@@ -15,9 +15,13 @@ const userReducer = (state = initialState.user, { type, payload }) => {
     case types.RESTORE_SESSION_SUCCESS:
     case types.REGISTER_USER_SUCCESS:
     case types.LOGIN_USER_SUCCESS:
-      return Object.assign({}, state, { ...payload, loading: false });
+      return Object.assign({}, state, {
+        ...payload,
+        errors: null,
+        loading: false
+      });
     case types.LOGOUT_USER_SUCCESS:
-      return Object.assign({}, {}, { ...payload, loading: false });
+      return Object.assign({}, {}, { ...payload, errors: null, loading: false });
 
     // Failed
     case types.RESTORE_SESSION_FAILED:

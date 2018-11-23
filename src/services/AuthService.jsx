@@ -6,51 +6,39 @@ class AuthService {
     this.connection = new Connection(baseURL);
   }
 
-  register = user =>
-    new Promise((resolve, reject) => {
-      this.connection
-        .post("/auth/register", user)
-        .then(registeredUser => resolve(registeredUser))
-        .catch(error => reject(error));
-    });
+  register = user => this.connection.post("/auth/register", user);
 
-  login = user =>
-    new Promise((resolve, reject) => {
-      this.connection
-        .post("/auth/login", user)
-        .then(({ _doc: currentUser }) => {
-          if (user.remember) {
-            localStorage.setItem(
-              LS_USER,
-              JSON.stringify({
-                ...currentUser,
-                password: user.password
-              })
-            );
-          }
+  login = async user => {
+    const { _doc: currentUser } = await this.connection.post("/auth/login", user);
 
-          resolve({
-            ...currentUser,
-            isAuthenticated: true
-          });
+    if (user.remember) {
+      localStorage.setItem(
+        LS_USER,
+        JSON.stringify({
+          ...currentUser,
+          password: user.password
         })
-        .catch(error => reject(error));
-    });
+      );
+    }
 
-  restoreSession = () =>
-    new Promise(async (resolve, reject) => {
-      try {
-        const userFromStorage = JSON.parse(localStorage.getItem(LS_USER));
-        if (userFromStorage) resolve(await this.login(userFromStorage));
-      } catch (e) {
-        reject(e);
-      }
-      reject("No session found");
-    });
+    return {
+      ...currentUser,
+      isAuthenticated: true
+    };
+  };
+
+  restoreSession = () => {
+    const userFromStore = JSON.parse(localStorage.getItem(LS_USER));
+    const isAuthenticated = !!userFromStore;
+    return {
+      ...userFromStore,
+      isAuthenticated
+    };
+  };
 
   logout = () => {
     localStorage.clear();
-    return Promise.resolve({ isAuthenticated: false });
+    return { isAuthenticated: false };
   };
 }
 

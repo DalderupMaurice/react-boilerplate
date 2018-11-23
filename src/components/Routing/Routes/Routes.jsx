@@ -9,19 +9,19 @@ import UserRoute from "./UserRoute";
 import AdminRoute from "./AdminRoute";
 
 // Pages
-import { HomePage, PageNotFound } from "../../../containers/index";
+import { HomePage, PageNotFound } from "../../../containers";
 
 //  Hocs
 import withLayout from "../../../hocs/withLayout";
-import withLoadingScreen from "../../../hocs/withLoadingScreen";
+// import withLoadingScreen from "../../../hocs/withLoadingScreen";
 
 // Layouts
-import LoginLayout from "../LoginLayout/index";
-import AuthenticatedLayout from "../AuthenticatedLayout/index";
+import LoginLayout from "../LoginLayout";
+import AuthenticatedLayout from "../AuthenticatedLayout";
 
 // Auth Pages
-import AuthenticationPage from "../../Auth/AuthenticationPage";
-import Logout from "../../Auth/Logout";
+import AuthenticationPage from "../../../containers/Authentication/AuthenticationPage";
+import Logout from "../../../containers/Authentication/Logout/Logout";
 
 const withLoginLayout = withLayout(LoginLayout);
 const withAuthLayout = withLayout(AuthenticatedLayout);
@@ -39,12 +39,11 @@ const Routes = () => (
   </Switch>
 );
 
-const mapStateToProps = state => ({
-  loading: state.user.loading
+const mapStateToProps = ({ user: { loading } }) => ({
+  loading
 });
 
 export default compose(
   withRouter,
-  connect(mapStateToProps),
-  withLoadingScreen
+  connect(mapStateToProps)
 )(Routes);
