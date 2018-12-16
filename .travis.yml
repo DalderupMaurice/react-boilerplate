@@ -1,5 +1,9 @@
 language: node_js
-node_js: 8.11.0
+node_js:
+  - lts
+  - 11
+  - 10
+  - 8
 os: linux
 group: stable
 dist: trusty

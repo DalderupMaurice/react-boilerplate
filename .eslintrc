@@ -4,10 +4,19 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "plugins": ["prettier", "jsx-a11y"],
-  "extends": ["eslint:recommended", "airbnb", "prettier", "prettier/react", "plugin:jsx-a11y/recommended"],
+  "plugins": ["prettier", "jsx-a11y", "import"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "rules": {
     "prettier/prettier": "error",
+    "max-len": ["error", { "code": 120, "ignoreUrls": true }],
     "linebreak-style": "off",
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "prefer-promise-reject-errors": "off"
