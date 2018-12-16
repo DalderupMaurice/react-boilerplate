@@ -9,7 +9,10 @@ class AuthService {
   register = user => this.connection.post("/auth/register", user);
 
   login = async user => {
-    const { _doc: currentUser } = await this.connection.post("/auth/login", user);
+    const { _doc: currentUser } = await this.connection.post(
+      "/auth/login",
+      user
+    );
 
     if (user.remember) {
       localStorage.setItem(

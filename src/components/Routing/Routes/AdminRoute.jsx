@@ -5,10 +5,21 @@ import { connect } from "react-redux";
 
 import { ROLES } from "../../../__utils__/Constants";
 
-const AdminRoute = ({ component: Component, isAuthenticated, role, ...rest }) => (
+const AdminRoute = ({
+  component: Component,
+  isAuthenticated,
+  role,
+  ...rest
+}) => (
   <Route
     {...rest}
-    render={props => (isAuthenticated && role === ROLES.admin ? <Component {...props} /> : <Redirect to="/" />)}
+    render={props =>
+      isAuthenticated && role === ROLES.admin ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/" />
+      )
+    }
   />
 );
 

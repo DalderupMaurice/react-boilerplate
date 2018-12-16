@@ -45,22 +45,30 @@ export default class RegisterPage extends React.Component {
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
             {getFieldDecorator("username", {
-              rules: [{ required: true, message: "Please input your username!" }]
+              rules: [
+                { required: true, message: "Please input your username!" }
+              ]
             })(
               <Input
                 disabled={loading}
-                prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+                prefix={
+                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
                 placeholder="Username"
               />
             )}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("password", {
-              rules: [{ required: true, message: "Please input your Password!" }]
+              rules: [
+                { required: true, message: "Please input your Password!" }
+              ]
             })(
               <Input
                 disabled={loading}
-                prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+                prefix={
+                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
                 type="password"
                 placeholder="Password"
               />
@@ -78,7 +86,11 @@ export default class RegisterPage extends React.Component {
                 onChange={this.handleChange}
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
-                filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
               >
                 {Object.values(ROLES).map(role => (
                   <Select.Option key={`${role}-role-select`} value={role}>
@@ -96,7 +108,12 @@ export default class RegisterPage extends React.Component {
             <Link className="login-form-forgot" to="/register">
               Forgot password
             </Link>
-            <Button disabled={loading} type="primary" htmlType="submit" className="login-form-button">
+            <Button
+              disabled={loading}
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
               Register
             </Button>
             Already an account? <Link to="/"> Sign in!</Link>

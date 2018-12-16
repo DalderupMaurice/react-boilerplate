@@ -3,7 +3,11 @@ import axios from "axios";
 let currentConnection = null;
 let currentToken = null;
 
-export default function Connection(baseURL = "http://localhost:3000/api", token = "", headers = null) {
+export default function Connection(
+  baseURL = "http://localhost:3000/api",
+  token = "",
+  headers = null
+) {
   currentToken = token;
   currentConnection = axios.create({
     baseURL,
@@ -20,7 +24,9 @@ export default function Connection(baseURL = "http://localhost:3000/api", token 
       // Only send the response
       const { response } = error;
       // response.statusText also possible instead of response.data.message
-      return Promise.reject(response ? response.data.message : error.toString());
+      return Promise.reject(
+        response ? response.data.message : error.toString()
+      );
     }
   );
 

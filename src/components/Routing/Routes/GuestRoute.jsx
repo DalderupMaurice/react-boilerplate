@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 const GuestRoute = ({ component: Component, isAuthenticated, ...rest }) => (
-  <Route {...rest} render={props => (isAuthenticated ? <Redirect to="/dashboard" /> : <Component {...props} />)} />
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated ? <Redirect to="/dashboard" /> : <Component {...props} />
+    }
+  />
 );
 
 GuestRoute.propTypes = {

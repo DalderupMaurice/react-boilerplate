@@ -29,7 +29,11 @@ const withAuthLayout = withLayout(AuthenticatedLayout);
 const Routes = () => (
   <Switch>
     {/* on / you can either register or login */}
-    <GuestRoute exact path="/" component={withLoginLayout(AuthenticationPage)} />
+    <GuestRoute
+      exact
+      path="/"
+      component={withLoginLayout(AuthenticationPage)}
+    />
     {/* Dashboard is the user permitted board */}
     <UserRoute exact path="/dashboard" component={withAuthLayout(HomePage)} />
     <UserRoute exact path="/logout" component={Logout} />
