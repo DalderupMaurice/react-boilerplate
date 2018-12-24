@@ -1018,10 +1018,10 @@ ant-design-palettes@^1.1.3:
   dependencies:
     tinycolor2 "^1.4.1"
 
-antd@3.11.4:
-  version "3.11.4"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.11.4.tgz#39c4a0e9ff1a944da4bdcb23c91432f0e8729158"
-  integrity sha512-no4tx3A3RyoccGE9DbuR5J4pZwW1hhWM1CoVvIqEdzVkc0pFjqht4Ad1b02kHwyYkPzXMezJOn5OwpkuejLGxA==
+antd@3.11.5:
+  version "3.11.5"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.11.5.tgz#70a22c902fa765293113f4a25f7c8a1c642ab175"
+  integrity sha512-+uJJ1S8FrlTImwRzYvhRFvf72K5ft0OV2adxhxaKx1x5r/JHzEKLjMSkwLqIEswS0iUMkMnp1VUNvUN1PFiJrw==
   dependencies:
     "@ant-design/icons" "~1.1.15"
     "@ant-design/icons-react" "~1.1.2"
