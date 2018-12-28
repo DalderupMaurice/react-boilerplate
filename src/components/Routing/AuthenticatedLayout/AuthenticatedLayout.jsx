@@ -17,6 +17,7 @@ export default class AuthenticatedLayout extends React.Component {
 
   render() {
     const {
+      user,
       user: { role }
     } = this.props;
 
@@ -24,7 +25,7 @@ export default class AuthenticatedLayout extends React.Component {
       <Layout style={{ minHeight: "100vh" }}>
         <CustomSider role={role} />
         <Layout>
-          <Content />
+          <Content user={user} />
           <Footer />
         </Layout>
       </Layout>
