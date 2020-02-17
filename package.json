@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.2.5",
-    "antd": "3.26.9",
+    "antd": "3.26.11",
     "axios": "0.19.2",
     "connected-react-router": "6.2.2",
     "history": "4.10.1",
